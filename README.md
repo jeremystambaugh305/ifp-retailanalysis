@@ -1,20 +1,54 @@
-# Project XYZ
+# ifp-retailanalysis
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+**Project XYZ** 
+
+Is my individual formative project carried out on 13-14Aug 2025 as part of the Code Institute Data Analysis and AI Bootcamp.
+
+The project repository is located here 
+https://github.com/jeremystambaugh305/ifp-retailanalysis
+
+and the project planning is located here
+https://github.com/users/jeremystambaugh305/projects/4
+
+Context
+
+The challenge involves making decisions based on limited historical data, particularly around holidays and promotional events. The dataset includes historical sales data for 45 stores in different regions, with details about store types, sizes, and promotional markdowns.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
+*  Datasets were obtained from 
+https://www.kaggle.com/datasets/manjeetsingh/retaildataset 
+comprising 3 datasets 
+These datasets comprise the following 3 csv files which contain data on historical sales data for 45 stores located in different regions - each store contains a number of departments. 
+'sales data-set.csv'
+'Features data set.csv'
+'Stores.csv'
 
+The company runs several promotional markdown events throughout the year. These markdowns precede prominent holidays, the four largest of which are the Super Bowl, Labor Day, Thanksgiving, and Christmas. I believe this set of holidays only occurs in the USA, so I assume this is a business operating in the USA.
+
+'sales data-set.csv' is by far the largest dataset. It comprises 5 columns and 421,570 rows of date. For each of the 45 stores and each department within each store, it appears to contain a date for each week from 05/02/2010 to 26/10/2022 (range and completeness to be confirmed (TBC) during data transformations), a number under a column called 'Sales' and whether or not each date is a holiday or not.
+
+'Features data set.csv' is smaller containing only 8,190 rows but more columns (12) with data on various dates (apparently weekly from 05/02/2010 to 26/07/2013 TBC) for each of the 45 stores, each spanning all departments. One reason (probably the main reason) the dataset has so many less rows than the sales dataset is that it is not broken down by department for each store. As with the stores dataset there is a column indicating whether or not the date was a holiday, but it also contains numberical data in 5 markdown columns and on temperature, fuel price, CPI, and unemployment.
+
+'stores data-set.csv' is a relatively small dataset with 45 rows and 3 columns containing the type (a letter) and store size (a number) for each of the 45 stores.
+
+None of the number headings show the units making it a little difficult to understand what they represent.  I can only assume at this stage that the numbers in the sales dataset column 'weekly_sales' and in the features dataset columns 'MarkDown1-5' are all absolute US dollar amounts.  At first glance, there appear to be too many of the latter to be percentages.
 
 ## Business Requirements
-* Describe your business requirements
+* Data analysis goals: Analyse retail sales data to identify trends, insights, and the impact of promotional markdowns on sales. Provide comprehensive, visually appealing sales reports and insights to assist in strategic decision-making.
 
 
 ## Hypothesis and how to validate?
 * List here your project hypothesis(es) and how you envision validating it (them) 
+My initial hypotheses (to be tested by data analysis) are
+
+1. I expect sales increase most significantly during markdown periods.
+2. I expect from the Kaggle description that most markdowns are in the lead up to national holidays.
+3. I expect unemployment to have the next most significant impact on sales.
+4. I doubt if other parameters in the features dataset have such a significant impact on sales but will assess their correlation to see.
+
 
 ## Project Plan
 * Outline the high-level steps taken for the analysis.
