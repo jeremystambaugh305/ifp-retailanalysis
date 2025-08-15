@@ -100,11 +100,23 @@ Future improvement:-would check with data holder what MarkDowns mean and replace
 
 Hindsight:-would have tried replacing negative MarkDown values with Nulls and assessing impact of doing so on correlation with weekly_sales.
 
-13. Add Year and Monthno columns to transformed features dataframe using the .dt.year and dt.month functions on Date column, and a MarkdownOn column which =True if there is non null data in any of the 5 MarkDown columns.  Obtain a count of features records grouped on Year, Monthno, MarkDownOn, and IsHoliday sorted in ascending date order to see patterns of Markdown vs holiday timing.  
+13. Research when holiday periods occur to anticipate when markdowns can be expected.  As below the subsequent analysis shows there is data in MarkDown columns throughout the year so conclude no clear relationship but I retained the researched information in case useful for refinement.
 
-Key findings:-I observed many markdowns are outside holiday periods so conclude this relationship is unreliable.
+14. Add Year and Monthno columns to transformed features dataframe using the .dt.year and dt.month functions on Date column, and a MarkdownOn column which =True if there is non null data in any of the 5 MarkDown columns.  Obtain a count of features records grouped on Year, Monthno, MarkDownOn, and IsHoliday sorted in ascending date order to see patterns of Markdown vs holiday timing.  
 
-14. Merge processed sales and features datasets (sales left and features right) using an outer join on 'Store' and 'Date' columns sorted on 'Date, Store, Dept to create a new dataframe called 'df_salesfeaturesmerged'  Generates 423325 rows compared with 421570 in the original sales dataset indicating some dates are present in the features dataset and not the sales dataset.
+Key findings:-I observed many markdowns are outside holiday periods so conclude no clear relationship.
+
+14. Merge processed sales and features dataframes with sales left and features right using an outer join on 'Store' and 'Date' columns sorted on 'Date, Store, Dept to create a new dataframe called 'df_salesfeaturesmerged'  Generates 423325 rows compared with 421570 in the original sales dataset indicating some dates are present in the features dataset and not the sales dataset.
+
+To test, I merged the dataframes with features left and sales right and this results in same number of rows as I'd expect before reverting the order to the above and rerunning.
+
+15. As a test, enumerate the non null counts for the merged dataset sales and MarkDown columns.  
+
+Key findings:-I see again the non null data is in line with observations above with Markdown data from Nov 2011 onwards but also that the monthly non null counts are significantly lower from Nov 2012.
+
+16. Assess correlations for weekly sales against other variables in salesfeatured merged dataframe in each calendar year using a correlation matrix.
+
+Key findings:-No strong correlations between sales and any other variables including MarkDowns.
 
 * Why did you choose the research methodologies you used?
 
